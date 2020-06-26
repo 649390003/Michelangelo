@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4a3755ff-9573-43e8-b104-93c6470cb051" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1b6LX38kQT6nA1z718LJTubxWOb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="E:/django框架学习/project-1/project" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="deliver_json_to_sql" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Share_Info_Web" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/static/myShare/json" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/static/myShare/json/deliver_json_to_sql.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.deliver_json_to_sql" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4a3755ff-9573-43e8-b104-93c6470cb051" name="Default Changelist" comment="" />
+      <created>1587947632329</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587947632329</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588755875028">
+      <screen x="0" y="0" width="1536" height="826" />
+    </state>
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.826@0.0.1536.826" timestamp="1588755875028" />
+    <state x="335" y="288" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588578289065">
+      <screen x="0" y="0" width="1536" height="826" />
+    </state>
+    <state x="335" y="288" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.826@0.0.1536.826" timestamp="1588578289065" />
+    <state x="927" y="185" key="FileChooserDialogImpl" timestamp="1589961006747">
+      <screen x="0" y="0" width="1536" height="826" />
+    </state>
+    <state x="927" y="185" key="FileChooserDialogImpl/0.0.1536.826@0.0.1536.826" timestamp="1589961006747" />
+    <state width="1514" height="206" key="GridCell.Tab.0.bottom" timestamp="1589186972728">
+      <screen x="0" y="0" width="1536" height="826" />
+    </state>
+    <state width="1514" height="206" key="GridCell.Tab.0.bottom/0.0.1536.826@0.0.1536.826" timestamp="1589186972728" />
+    <state width="1514" height="206" key="GridCell.Tab.0.center" timestamp="1589186972728">
+      <screen x="0" y="0" width="1536" height="826" />
+    </state>
+    <state width="1514" height="206" key="GridCell.Tab.0.center/0.0.1536.826@0.0.1536.826" timestamp="1589186972728" />
+    <state width="1514" height="206" key="GridCell.Tab.0.left" timestamp="1589186972727">
+      <screen x="0" y="0" width="1536" height="826" />
+    </state>
+    <state width="1514" height="206" key="GridCell.Tab.0.left/0.0.1536.826@0.0.1536.826" timestamp="1589186972727" />
+    <state width="1514" height="206" key="GridCell.Tab.0.right" timestamp="1589186972728">
+      <screen x="0" y="0" width="1536" height="826" />
+    </state>
+    <state width="1514" height="206" key="GridCell.Tab.0.right/0.0.1536.826@0.0.1536.826" timestamp="1589186972728" />
+    <state x="411" y="37" key="SettingsEditor" timestamp="1588944238937">
+      <screen x="0" y="0" width="1536" height="826" />
+    </state>
+    <state x="411" y="37" key="SettingsEditor/0.0.1536.826@0.0.1536.826" timestamp="1588944238937" />
+    <state x="600" y="229" key="com.intellij.ide.util.TipDialog" timestamp="1591935563803">
+      <screen x="0" y="0" width="1536" height="826" />
+    </state>
+    <state x="600" y="229" key="com.intellij.ide.util.TipDialog/0.0.1536.826@0.0.1536.826" timestamp="1591935563803" />
+    <state x="431" y="147" width="672" height="678" key="search.everywhere.popup" timestamp="1589528043289">
+      <screen x="0" y="0" width="1536" height="826" />
+    </state>
+    <state x="431" y="147" width="672" height="678" key="search.everywhere.popup/0.0.1536.826@0.0.1536.826" timestamp="1589528043289" />
+  </component>
+</project>

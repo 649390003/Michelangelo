@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>服务-仙人摩管理系统</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+       <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                             </span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">陈武</strong>
+                             </span> <span class="text-muted text-xs block">管理员 <b class="caret"></b></span> </span> </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a href="profile.html">个人信息</a></li>
+                                <li><a href="contacts.html">联系方式</a></li>
+                                <li><a href="mailbox.html">邮箱</a></li>
+                                <li class="divider"></li>
+                                <li><a href="login.html">退出登录</a></li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">
+                      <img src="img/00_03.png" width="38" height="35" alt=""/> </div>
+                    </li>
+                    <li>
+                        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">首页</span> </a>
+                  </li>
+                    <li>
+                       
+                       
+                  <li>  
+                        <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">收益</span><span class="fa arrow"></span></a>
+                    
+                      <ul class="nav nav-second-level">
+                            <li><a href="shouyi-1.html">收益概况</a></li>
+                            <li><a href="shouyi-2.html">历史收益</a></li>
+                            <li><a href="shouyi-3.html">收益明细</a></li>
+                      </ul>
+                    
+                    
+                    
+                    
+                  </li>
+                    <li>  
+                      <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">分析</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="fenxi1.html">收益分析</a></li>
+                            <li><a href="fenxi2.html">门店分析</a></li>
+                            <li><a href="fenxi3.html">客户分析</a></li>
+                            <li><a href="fenxi4.html">设备分析</a></li>
+                      </ul>
+                    </li>
+                     <li>
+                        <a href="caiwu.html"><i class="fa fa-envelope"></i> <span class="nav-label">财务 </span></a>
+                      
+                  </li>
+                    <li>
+                        <a href="kehu.html"><i class="fa fa-pie-chart"></i> <span class="nav-label">客户</span>  </a>
+                    </li>
+                    <li class="active">
+                        <a href="wufu.html"><i class="fa fa-flask"></i> <span class="nav-label">服务</span></a>
+                    </li>
+                    <li>
+                        <a href="xiaoxi.html"><i class="fa fa-edit"></i> <span class="nav-label">消息</span></a>
+                  </li>
+                    <li>
+                        <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">设置</span></a>
+                        <ul class="nav nav-second-level collapse">
+                        <li><a href="shezhi.html">基础设置</a></li>
+                            <li><a href="shezhi2.html">提现设置</a></li></ul>
+                  </li>
+                    <li>
+                      <ul class="nav nav-second-level collapse">
+                        <li><a href="search_results.html">搜索结果</a></li>
+                            <li><a href="lockscreen.html">锁屏</a></li>
+                            <li><a href="invoice.html">发票</a></li>
+                            <li><a href="login.html">登录</a></li>
+                            <li><a href="login_two_columns.html">登录 v.2</a></li>
+                            <li><a href="forgot_password.html">忘记密码</a></li>
+                            <li><a href="register.html">注册</a></li>
+                            <li><a href="404.html">404</a></li>
+                            <li><a href="500.html">500</a></li>
+                            <li><a href="empty_page.html">空白页面</a></li>
+                      </ul>
+                    </li>
+              </ul>
+
+            </div>
+        </nav> 
+
+      <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            <form role="search" class="navbar-form-custom" action="search_results.html">
+                <div class="form-group">
+                    <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                </div>
+            </form>
+        </div>
+        <ul class="nav navbar-top-links navbar-right">
+            <li>
+                <span class="m-r-sm text-muted welcome-message">欢迎来到Admin Theme</span>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                    <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+                </a>
+                <ul class="dropdown-menu dropdown-messages">
+                    <li>
+                        <div class="dropdown-messages-box">
+                            <a href="profile.html" class="pull-left">
+                                <img alt="image" class="img-circle" src="img/a7.jpg">
+                            </a>
+                            <div class="media-body">
+                                <small class="pull-right">46小时前</small>
+                                <strong>李文俊</strong> 关注了 <strong>刘海洋</strong>. <br>
+                                <small class="text-muted">3 天 前- 10.06.2014</small>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <div class="dropdown-messages-box">
+                            <a href="profile.html" class="pull-left">
+                                <img alt="image" class="img-circle" src="img/a4.jpg">
+                            </a>
+                            <div class="media-body ">
+                                <small class="pull-right text-navy">5小时前</small>
+                                <strong>王昆</strong> 关注了 <strong>李文俊</strong>. <br>
+                                <small class="text-muted">昨天下午1:21 - 11.06.2014</small>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <div class="dropdown-messages-box">
+                            <a href="profile.html" class="pull-left">
+                                <img alt="image" class="img-circle" src="img/profile.jpg">
+                            </a>
+                            <div class="media-body ">
+                                <small class="pull-right">23小时前</small>
+                                <strong>张三</strong> 赞了 <strong>李四</strong>. <br>
+                                <small class="text-muted">2天前 - 11.06.2014</small>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <div class="text-center link-block">
+                            <a href="mailbox.html">
+                                <i class="fa fa-envelope"></i> <strong>查看更多消息</strong>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                    <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                </a>
+                <ul class="dropdown-menu dropdown-alerts">
+                    <li>
+                        <a href="mailbox.html">
+                            <div>
+                                <i class="fa fa-envelope fa-fw"></i> 您有 16 条未读通知
+                                <span class="pull-right text-muted small">4 分钟 前</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="profile.html">
+                            <div>
+                                <i class="fa fa-twitter fa-fw"></i> 3 个新粉丝
+                                <span class="pull-right text-muted small">12 分钟 前</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="grid_options.html">
+                            <div>
+                                <i class="fa fa-upload fa-fw"></i> 服务器重启
+                                <span class="pull-right text-muted small">4 分钟 前</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <div class="text-center link-block">
+                            <a href="notifications.html">
+                                <strong>查看更多通知</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="login.html">
+                    <i class="fa fa-sign-out"></i> 退出登录
+                </a>
+            </li>
+        </ul>
+        </nav>
+        </div>
+         
+        <div class="wrapper wrapper-content  animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h5>仙人摩科技</h5>
+                        </div>
+                        <div class="ibox-content keji">
+                                               
+                          <div class="jjlogo"><img src="img/logo_03.png" width="184" height="68" alt=""/></div>
+                          <p>      仙人摩科技有限公司是东风公司根据建设"永续发展的百年东风、面向世界的国际化东风、在开放中自主发展的东风"的战略需要，全资组建的集研发、制造、销售东风自主品牌乘用车为主的新兴事业板块，在东风自主品牌事业中居于核心地位，位于武汉市经济技术开发区。2007年7月25日，东风乘用车事业部暨事业部党委成立；同年9月19日，公司破土动工，启动工厂建设。
+      截止目前，公司拥有武汉工厂、发动机工厂、新能源工厂三个主要生产阵地，共占地1600亩。武汉工厂规划产能24万辆，一次性规划，分两期实施，已建成冲压、焊装、涂装、总装四大车间，具备16万辆生产能力。发动机工厂规划产能24万台，目前具备12万台生产能力，自主研发A系列发动机A16、A15已实现批量生产。新能源工厂规划产能8万辆。</p>
+                          <p><img src="img/fw_07.png" width="676" height="279" alt=""/></p>
+                                                                          
+           <div class="lianxi">
+           <div class="lxxx"><img src="img/lx_03.png" width="24" height="23" alt=""/>客服热线：400-000-8888 </div>
+           <div class="lxxx"><img src="img/lx_06.png" width="24" height="23" alt=""/>仙人摩微博：www.xianrenmo.com</div>
+           <div class="lxxx"><img src="img/lx_08.png" width="24" height="23" alt=""/>客服热线：400-000-8888 </div>
+           </div>       
+           
+           
+            <div class="lianxi ewm">
+              <img src="img/ewm00_03.png" width="115" height="115" alt=""/><br>
+微信扫码关注 </div>  
+           
+           
+           
+            
+                      </div>
+                                       </div>
+
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h5>常见问题</h5>
+                        </div>
+                        <div class="ibox-content">
+                           
+<div class="col-lg-12">
+                    <div class="wrapper wrapper-content animated fadeInRight">
+
+
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="#faq1" class="faq-question">怎样可以最有效地瘦臀？ </a>
+                                    <small>发布于  <i class="fa fa-clock-o"></i> 今天 2:40 pm - 24.06.2014</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">吃葡萄专吃皮</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">精神疾病问答中心</span>
+                                        <span class="tag-item">有行医资格证</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">回答 </span><br/>
+                                    42
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq1" class="panel-collapse collapse ">
+                                        <div class="faq-answer">
+                                            <p>
+                                                蹭树
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="#faq2" class="faq-question">显示器画面不停地轻微抖动，有什么办法？</a>
+                                    <small>发布于  <i class="fa fa-clock-o"></i> 今天 3:30 pm - 11.06.2014</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">吃葡萄专吃皮</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">精神疾病问答中心</span>
+                                        <span class="tag-item">有行医资格证</span>
+                                        <span class="tag-item">CC</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">回答 </span><br/>
+                                    24
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq2" class="panel-collapse collapse">
+                                        <div class="faq-answer">
+                                            <p>
+                                                你也不停地抖动，当你的频率和振幅与显示器画面一致时，你就感觉不出来了。 
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="#faq3" class="faq-question">为什么好马不吃回头草？ </a>
+                                    <small>发布于 <strong>Monica Rother</strong> <i class="fa fa-clock-o"></i> 昨天 7:60 pm - 12.06.2014</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">Alex Berg</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">精神疾病问答中心</span>
+                                        <span class="tag-item">Web App</span>
+                                        <span class="tag-item">Instruction</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">回答 </span><br/>
+                                    22
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq3" class="panel-collapse collapse">
+                                        <div class="faq-answer">
+                                            <p>
+                                                因为马儿拉屎在后面拉。 
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="#faq4" class="faq-question">如何除掉烦人的狗？我家附近有人养狗，且不管它随便跑，经常晚上在我家门口拉屎，有没有办法不让它在我家拉屎，或神不知鬼不觉地把它弄死且没人知道。 </a>
+                                    <small>发布于 <strong>Janet North</strong> <i class="fa fa-clock-o"></i> 今天 2:43 pm - 22.06.2014</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">吃葡萄专吃皮</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">Buttons</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">回答 </span><br/>
+                                    65
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq4" class="panel-collapse collapse">
+                                        <div class="faq-answer">
+                                            <p>
+                                                和主人说没用，我告诉你个好主意。每次狗拉屎的时候，你去偷看，等狗发现了你在偷看，它会害羞的，就再也不敢到你家门口拉屎了。 
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="#faq5" class="faq-question">为什么我玩3D游戏时会头晕？ </a>
+                                    <small>发布于 <strong>Robert Task</strong> <i class="fa fa-clock-o"></i> 今天 1:23 pm - 12.06.2014</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">沙皮狗吃狗肉</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">精神疾病问答中心</span>
+                                        <span class="tag-item">有行医资格证</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">回答 </span><br/>
+                                    76
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq5" class="panel-collapse collapse">
+                                        <div class="faq-answer">
+                                            <p>
+                                                回答一:小脑不发达。 
+                                                回答二:大脑不发达。 
+                                                回答三:大小脑都不发达。 
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="#faq6" class="faq-question">怎么驱赶蚂蚁？ </a>
+                                    <small>发布于 <strong>Monica Smith</strong> <i class="fa fa-clock-o"></i> 今天 7:220 pm - 13.06.2014</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">吃葡萄专吃皮</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">Love</span>
+                                        <span class="tag-item">CC</span>
+                                        <span class="tag-item">Help</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">回答 </span><br/>
+                                    11
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq6" class="panel-collapse collapse">
+                                        <div class="faq-answer">
+                                            <p>
+                                                在寝室门上贴上“戒严”或者“查封”等字样，造成寝室已经停止营业的假象。 
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="#faq7" class="faq-question"> 怎么样才能在街上捡到更多的钱？ </a>
+                                    <small>发布于 <strong>Damien Sate</strong> <i class="fa fa-clock-o"></i> 昨天 4:50 pm - 8.06.2014</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">艾丽莎采蘑菇</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">International</span>
+                                        <span class="tag-item">What</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">回答 </span><br/>
+                                    64
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq7" class="panel-collapse collapse">
+                                        <div class="faq-answer">
+                                            <p>
+                                                回答一:把自己的钱包丢在地上就可。 
+                                                回答二:最好当垃圾清扫员。这样拾零钱几率大。 
+                                                回答三:钱不是捡来的，也不要低头走，钱是天上掉下来的，要时刻抬头看。 
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="#faq8" class="faq-question">最简单的长寿秘诀是什么？ </a>
+                                    <small>发布于 <strong>Pablo Sarnoq</strong> <i class="fa fa-clock-o"></i> 今天 1:30 am - 1.06.2014</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">科二踢足球</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">Translations</span>
+                                        <span class="tag-item">CC</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">回答 </span><br/>
+                                    10
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq8" class="panel-collapse collapse">
+                                        <div class="faq-answer">
+                                            <p>
+                                               保持呼吸，不要断气。 
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a data-toggle="collapse" href="#faq9" class="faq-question">我要问百度知道知道不知道知道就知道不知道就不知道不要知道说不知道不知道说知道到头来知道变成不知道不知道还是不知道天知道地知道百度知道知道若要问我知道不知道知道不知道也不知道。请加标点符号，眼睛不好慎入～ </a>
+                                    <small>发布于 <strong>Monica Smith</strong> <i class="fa fa-clock-o"></i> 今天 1:60 pm - 11.06.2014</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="small font-bold">艾丽莎采蘑菇</span>
+                                    <div class="tag-list">
+                                        <span class="tag-item">精神疾病问答中心</span>
+                                        <span class="tag-item">有行医资格证</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right">
+                                    <span class="small font-bold">回答 </span><br/>
+                                    23
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="faq9" class="panel-collapse collapse">
+                                        <div class="faq-answer">
+                                            <p>
+                                                我要问百度知道:“知道不知道？”知道就知道，不知道就不知道。不要知道说不知道，不知道说知道，到头来知道变成不知道，不知道还是不知道。天知道、地知道、百度知道知道，若要问我知道不知道，知道不知道也不知道！ 
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="footer">
+            <div class="pull-right">
+                10GB of <strong>250GB</strong> Free.
+            </div>
+            <div>
+                <strong>Copyright</strong> 版权所有 &copy; 2014-2015
+            </div>
+        </div>
+
+        </div>
+        </div>
+
+
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- Jquery Validate -->
+    <script src="js/plugins/validate/jquery.validate.min.js"></script>
+
+    <script>
+         $(document).ready(function(){
+
+             $("#form").validate({
+                 rules: {
+                     password: {
+                         required: true,
+                         minlength: 3
+                     },
+                     url: {
+                         required: true,
+                         url: true
+                     },
+                     number: {
+                         required: true,
+                         number: true
+                     },
+                     min: {
+                         required: true,
+                         minlength: 6
+                     },
+                     max: {
+                         required: true,
+                         maxlength: 4
+                     }
+                 }
+             });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device,initial-scale=1">
+    <title>register</title>
+    <link href="{% static 'myShare/css/register.css' %}" rel="stylesheet">
+    <script src="{% static 'myShare/js/jquery-1.7.1.min.js' %}"></script>
+    <style type="text/css">
+    	#errortag{
+    		position: relative;
+    	}
+    	.errorinfo{
+    		font-size: 16px;
+    		color: #c7dbe4;
+    		position: absolute;
+    		left: 75%;
+    		/*top: 10px;*/
+    		top: 20%;
+    	}
+    </style>
+</head>
+
+<body>
+<div class="wrap">
+    <div class="container">
+        <h1 style="color: white; margin: 0; text-align: center">Sign up</h1>
+        <form method="post" action="{% url 'users:register' %}">
+            {% csrf_token %}
+            {% for info in form %}
+            <div id="errortag">
+                <label>
+                    {{info}}
+                </label>
+                <label class="errorinfo">{{info.errors.0}}</label>
+            </div>
+            {% endfor %}
+            <input type="submit" value="Sign up"/>
+            <p class="change_link" style="text-align: center">
+                <span class="text">Already a member ?</span>
+                <a href="{% url 'users:login' %}" class="to_login"> Go and log in </a>
+            </p>
+            <input type="hidden" name="next" value="{% url 'myShare:index' %}" />
+        </form>
+    </div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+<script>
+    window.onload = function () {
+        $("#id_username").attr("placeholder","your username")
+        $("#id_password1").attr("placeholder","password")
+        $("#id_password2").attr("placeholder","Please confirm your password")
+    }
+</script>
+{% if messages %}
+    <script>
+        {% for msg in messages %}
+            alert('{{ msg.message }}');
+        {% endfor %}
+    </script>
+{% endif %}
+</html>

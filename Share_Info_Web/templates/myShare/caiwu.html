@@ -1,0 +1,339 @@
+{% extends 'myShare/base.html' %}
+{% load staticfiles %}
+{% block main %}
+<div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+            <div class="col-lg-5">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>我的账户</h5>
+                         <div class="ibox-tools"> <a class="collapse-link"> <i class="fa fa-chevron-up"></i> </a> <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-wrench"></i> </a>
+                       <ul class="dropdown-menu dropdown-user">
+                         <li><a href="#">配置选项 1</a> </li>
+                         <li><a href="#">配置选项 2</a> </li>
+                       </ul>
+                       <a class="close-link"> <i class="fa fa-times"></i> </a> </div>
+                    </div>
+                     <div class="ibox-content">
+                    <div class="yueje">
+                        {% if uact  %}
+                        <div class="jiage">
+                            ￥{{ uact.balance }}
+                        </div>
+                        <p> 可用余额 </p>
+                        {% else %}
+                        <div class="jiage">
+                            您还没有开通账户
+                        </div>
+                        <p><a href="{% url 'myShare:addaccount' %}"> 点击开通 </a></p>
+                        {% endif %}
+                    </div>
+                     <div class="zhanhuxinxi">
+                     <div class="zlwsd">资料完善度：<span style="color: #0094AE">100%</span></div>
+                     <div class="zhanhutubiao wei"><i class="iconfont icon-youxiang"></i></div>
+                     <div class="zhanhutubiao"><i class="iconfont icon-yinxingqia1"></i></div>
+                     <div class="zhanhutubiao"><i class="iconfont icon-xingming"></i></div>
+                     <div class="zhanhutubiao"><i class="iconfont icon-shouji"></i></div>
+                      </div>
+                </div>
+                    </div>
+                {% if uact  %}
+                <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>账户充值</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#">配置选项 1</a>
+                            </li>
+                            <li>
+                                <a href="#">配置选项 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+               <div class="ibox-content">
+<!--                  <div class="zidongtix">-->
+<!--                   <div class="tixiandao"> 提现到：</div>-->
+<!--                   <div class="shaixuan"></div>-->
+<!--                   <div class="tixiandao"> 提现周期：</div>-->
+<!--                   <div class="shaixuan"></div>-->
+<!--                  </div>-->
+                    <font style="vertical-align: inherit;">请谨慎进行操作</font>
+                    <button class="btn btn-primary btn-sm"><a id="torechage" class="" href="{% url 'myShare:recharge' %}">账户充值</a></button>
+                </div>
+                </div>
+                <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>账户提现</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#">配置选项 1</a>
+                            </li>
+                            <li>
+                                <a href="#">配置选项 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+               <div class="ibox-content">
+<!--                  <div class="zidongtix">-->
+<!--                   <div class="tixiandao"> 提现到：</div>-->
+<!--                   <div class="shaixuan"></div>-->
+<!--                   <div class="tixiandao"> 提现周期：</div>-->
+<!--                   <div class="shaixuan"></div>-->
+<!--                  </div>-->
+                    <font style="vertical-align: inherit;">请谨慎进行操作</font>
+                    <button class="btn btn-primary btn-sm"><a id="tocash" class="" href="{% url 'myShare:tocash' %}">账户提现</a></button>
+                </div>
+                </div>
+                {% else %}
+                <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>充值/提现</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#">配置选项 1</a>
+                            </li>
+                            <li>
+                                <a href="#">配置选项 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+               <div class="ibox-content">
+                    <h3>请开通账户后再操作</h3>
+                </div>
+                </div>
+                {% endif %}
+            </div>
+                <div class="col-lg-7">
+                  <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>账户累计流水（元）：￥{{ zdls }}<br>
+                            </h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">配置选项 1</a>
+                                    </li>
+                                    <li><a href="#">配置选项 2</a>
+                                    </li>
+                              </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                          </div>
+                    </div>
+                        <div class="ibox-content">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                   <tbody>
+                                   {% for record in records %}
+                                    <tr>
+                                        <td width="14%">{{forloop.counter}}</td>
+                                        <td width="25%">
+                                            {% if record.bstype %}
+                                            充值
+                                            {% else %}
+                                            提现
+                                            {% endif %}
+                                        </td>
+                                        <td width="28%">
+                                            {% if record.bstype %}
+                                            ＋{{record.amount}}
+                                            {% else %}
+                                            －{{record.amount}}
+                                            {% endif %}
+                                        </td>
+                                        <td width="30%">{{record.rdate|date:"Y-m-d H:i:s"}}</td>
+                                        <td width="3%"><a onclick="return deleterecord();" href="{% url 'myShare:delrtrecord' record.id %}">×</a></td>
+                                    </tr>
+                                    {% empty %}
+                                    <h3>暂时无交易记录</h3>
+                                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+
+
+
+
+
+                        </div>
+                  </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+{% endblock main %}
+
+{% block css%}
+<link href="{% static 'myShare/font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/animate.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/style.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/iconfont.css' %}" rel="stylesheet" type="text/css">
+<!--<link href="{% static 'myShare/css/plugins/iCheck/custom.css' %}" rel="stylesheet">-->
+<style>
+    .wizard > .content > .body  {position: relative; }
+    #torechage,#tocash{
+        color:#fff;
+    }
+</style>
+
+{% endblock css%}
+
+{% block javascript%}
+    <!-- Mainly scripts -->
+    <script src="{% static 'myShare/js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'myShare/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'myShare/js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'myShare/js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="{% static 'myShare/js/inspinia.js' %}"></script>
+    <script src="{% static 'myShare/js/plugins/pace/pace.min.js' %}"></script>
+
+    <!-- Steps -->
+<!--    <script src="{% static 'myShare/js/plugins/staps/jquery.steps.min.js' %}"></script>-->
+
+    <!-- Jquery Validate -->
+    <script src="{% static 'myShare/js/plugins/validate/jquery.validate.min.js' %}"></script>
+
+<!--    <script>-->
+<!--        $(document).ready(function(){-->
+<!--            $("#wizard").steps();-->
+<!--            $("#form").steps({-->
+<!--                bodyTag: "fieldset",-->
+<!--                onStepChanging: function (event, currentIndex, newIndex)-->
+<!--                {-->
+<!--                    // Always allow going backward even if the current step contains invalid fields!-->
+<!--                    if (currentIndex > newIndex)-->
+<!--                    {-->
+<!--                        return true;-->
+<!--                    }-->
+
+<!--                    // Forbid suppressing "Warning" step if the user is to young-->
+<!--                    if (newIndex === 3 && Number($("#age").val()) < 18)-->
+<!--                    {-->
+<!--                        return false;-->
+<!--                    }-->
+
+<!--                    var form = $(this);-->
+
+<!--                    // Clean up if user went backward before-->
+<!--                    if (currentIndex < newIndex)-->
+<!--                    {-->
+<!--                        // To remove error styles-->
+<!--                        $(".body:eq(" + newIndex + ") label.error", form).remove();-->
+<!--                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");-->
+<!--                    }-->
+
+<!--                    // Disable validation on fields that are disabled or hidden.-->
+<!--                    form.validate().settings.ignore = ":disabled,:hidden";-->
+
+<!--                    // Start validation; Prevent going forward if false-->
+<!--                    return form.valid();-->
+<!--                },-->
+<!--                onStepChanged: function (event, currentIndex, priorIndex)-->
+<!--                {-->
+<!--                    // Suppress (skip) "Warning" step if the user is old enough.-->
+<!--                    if (currentIndex === 2 && Number($("#age").val()) >= 18)-->
+<!--                    {-->
+<!--                        $(this).steps("next");-->
+<!--                    }-->
+
+<!--                    // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.-->
+<!--                    if (currentIndex === 2 && priorIndex === 3)-->
+<!--                    {-->
+<!--                        $(this).steps("previous");-->
+<!--                    }-->
+<!--                },-->
+<!--                onFinishing: function (event, currentIndex)-->
+<!--                {-->
+<!--                    var form = $(this);-->
+
+<!--                    // Disable validation on fields that are disabled.-->
+<!--                    // At this point it's recommended to do an overall check (mean ignoring only disabled fields)-->
+<!--                    form.validate().settings.ignore = ":disabled";-->
+
+<!--                    // Start validation; Prevent form submission if false-->
+<!--                    return form.valid();-->
+<!--                },-->
+<!--                onFinished: function (event, currentIndex)-->
+<!--                {-->
+<!--                    var form = $(this);-->
+
+<!--                    // Submit form input-->
+<!--                    form.submit();-->
+<!--                }-->
+<!--            }).validate({-->
+<!--                        errorPlacement: function (error, element)-->
+<!--                        {-->
+<!--                            element.before(error);-->
+<!--                        },-->
+<!--                        rules: {-->
+<!--                            confirm: {-->
+<!--                                equalTo: "#password"-->
+<!--                            }-->
+<!--                        }-->
+<!--                    });-->
+<!--       });-->
+<!--    </script>-->
+<script type="text/javascript">
+		function deleterecord()
+		{
+		     if(confirm("确定要删除吗?"))
+		     {
+		         return true;
+		     }
+		     else{
+		         return false;
+			 }
+		}
+    </script>
+{% endblock javascript%}

@@ -1,0 +1,280 @@
+{% extends 'myShare/base.html' %}
+{% load staticfiles %}
+{% block main %}
+<div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-6">
+                  <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>股票购买记录<br>
+                            </h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">配置选项 1</a>
+                                    </li>
+                                    <li><a href="#">配置选项 2</a>
+                                    </li>
+                              </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                          </div>
+                    </div>
+                        <div class="ibox-content">
+                            <div class="table-responsive">
+                                <table align="center" class="table table-striped">
+                                   <tbody>
+                                   <tr align="center">
+                                       <td width="5%">-</td>
+                                       <td width="14%">购买价格</td>
+                                       <td width="14%">购买数量</td>
+                                       <td width="15%">是否成功</td>
+                                       <td width="18%">购买时间</td>
+                                       <td width="34%">备注</td>
+                                   </tr>
+                                   {% for order in mairudingdan %}
+                                    <tr align="center">
+                                        <td width="5%">{{forloop.counter}}</td>
+                                        <td width="14%">{{order.expectprice}}</td>
+                                        <td width="14%">{{order.buynum}}</td>
+                                        <td width="14%">
+                                            {%if order.isSuccess%}
+                                            购买成功
+                                            {%else%}
+                                            购买失败
+                                            {%endif%}
+                                        </td>
+                                        <td width="17%">{{order.ordertime|date:"Y-m-d"}}</td>
+                                        <td width="36%">{{order.remark}}</td>
+<!--                                        <td width="0"><a onclick="return deleterecord();" href="">×</a></td>-->
+                                    </tr>
+                                    {% empty %}
+                                    <h3>暂时无购买记录</h3>
+                                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+
+
+
+
+
+                        </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>股票出售记录<br>
+                            </h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">配置选项 1</a>
+                                    </li>
+                                    <li><a href="#">配置选项 2</a>
+                                    </li>
+                              </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                          </div>
+                    </div>
+                        <div class="ibox-content">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                   <tbody>
+                                   <tr align="center">
+                                       <td width="5%">-</td>
+                                       <td width="14%">卖出价格</td>
+                                       <td width="14%">卖出数量</td>
+                                       <td width="15%">是否成功</td>
+                                       <td width="18%">出售时间</td>
+                                       <td width="34%">备注</td>
+                                   </tr>
+                                   {% for order in maichudingdan %}
+                                    <tr align="center">
+                                        <td width="5%">{{forloop.counter}}</td>
+                                        <td width="14%">{{order.expectprice}}</td>
+                                        <td width="14%">{{order.sellnum}}</td>
+                                        <td width="14%">
+                                            {%if order.isSuccess%}
+                                            出售成功
+                                            {%else%}
+                                            出售失败
+                                            {%endif%}
+                                        </td>
+                                        <td width="17%">{{order.ordertime|date:"Y-m-d"}}</td>
+                                        <td width="36%">{{order.remark}}</td>
+<!--                                        <td width="0"><a onclick="return deleterecord();" href="">×</a></td>-->
+                                    </tr>
+                                    {% empty %}
+                                    <h3>暂时无卖出记录</h3>
+                                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+
+
+
+
+
+                        </div>
+                  </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
+{% endblock main %}
+
+{% block css%}
+<link href="{% static 'myShare/font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/animate.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/style.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/iconfont.css' %}" rel="stylesheet" type="text/css">
+<!--<link href="{% static 'myShare/css/plugins/iCheck/custom.css' %}" rel="stylesheet">-->
+<style>
+    .wizard > .content > .body  {position: relative; }
+    #torechage,#tocash{
+        color:#fff;
+    }
+</style>
+
+{% endblock css%}
+
+{% block javascript%}
+    <!-- Mainly scripts -->
+    <script src="{% static 'myShare/js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'myShare/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'myShare/js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'myShare/js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="{% static 'myShare/js/inspinia.js' %}"></script>
+    <script src="{% static 'myShare/js/plugins/pace/pace.min.js' %}"></script>
+
+    <!-- Steps -->
+<!--    <script src="{% static 'myShare/js/plugins/staps/jquery.steps.min.js' %}"></script>-->
+
+    <!-- Jquery Validate -->
+    <script src="{% static 'myShare/js/plugins/validate/jquery.validate.min.js' %}"></script>
+
+<!--    <script>-->
+<!--        $(document).ready(function(){-->
+<!--            $("#wizard").steps();-->
+<!--            $("#form").steps({-->
+<!--                bodyTag: "fieldset",-->
+<!--                onStepChanging: function (event, currentIndex, newIndex)-->
+<!--                {-->
+<!--                    // Always allow going backward even if the current step contains invalid fields!-->
+<!--                    if (currentIndex > newIndex)-->
+<!--                    {-->
+<!--                        return true;-->
+<!--                    }-->
+
+<!--                    // Forbid suppressing "Warning" step if the user is to young-->
+<!--                    if (newIndex === 3 && Number($("#age").val()) < 18)-->
+<!--                    {-->
+<!--                        return false;-->
+<!--                    }-->
+
+<!--                    var form = $(this);-->
+
+<!--                    // Clean up if user went backward before-->
+<!--                    if (currentIndex < newIndex)-->
+<!--                    {-->
+<!--                        // To remove error styles-->
+<!--                        $(".body:eq(" + newIndex + ") label.error", form).remove();-->
+<!--                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");-->
+<!--                    }-->
+
+<!--                    // Disable validation on fields that are disabled or hidden.-->
+<!--                    form.validate().settings.ignore = ":disabled,:hidden";-->
+
+<!--                    // Start validation; Prevent going forward if false-->
+<!--                    return form.valid();-->
+<!--                },-->
+<!--                onStepChanged: function (event, currentIndex, priorIndex)-->
+<!--                {-->
+<!--                    // Suppress (skip) "Warning" step if the user is old enough.-->
+<!--                    if (currentIndex === 2 && Number($("#age").val()) >= 18)-->
+<!--                    {-->
+<!--                        $(this).steps("next");-->
+<!--                    }-->
+
+<!--                    // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.-->
+<!--                    if (currentIndex === 2 && priorIndex === 3)-->
+<!--                    {-->
+<!--                        $(this).steps("previous");-->
+<!--                    }-->
+<!--                },-->
+<!--                onFinishing: function (event, currentIndex)-->
+<!--                {-->
+<!--                    var form = $(this);-->
+
+<!--                    // Disable validation on fields that are disabled.-->
+<!--                    // At this point it's recommended to do an overall check (mean ignoring only disabled fields)-->
+<!--                    form.validate().settings.ignore = ":disabled";-->
+
+<!--                    // Start validation; Prevent form submission if false-->
+<!--                    return form.valid();-->
+<!--                },-->
+<!--                onFinished: function (event, currentIndex)-->
+<!--                {-->
+<!--                    var form = $(this);-->
+
+<!--                    // Submit form input-->
+<!--                    form.submit();-->
+<!--                }-->
+<!--            }).validate({-->
+<!--                        errorPlacement: function (error, element)-->
+<!--                        {-->
+<!--                            element.before(error);-->
+<!--                        },-->
+<!--                        rules: {-->
+<!--                            confirm: {-->
+<!--                                equalTo: "#password"-->
+<!--                            }-->
+<!--                        }-->
+<!--                    });-->
+<!--       });-->
+<!--    </script>-->
+<script type="text/javascript">
+		function deleterecord()
+		{
+		     if(confirm("确定要删除吗?"))
+		     {
+		         return true;
+		     }
+		     else{
+		         return false;
+			 }
+		}
+    </script>
+{% endblock javascript%}

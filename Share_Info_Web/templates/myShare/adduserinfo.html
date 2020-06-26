@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap3 %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>完善用户信息</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+<!--    <link href="{% static 'myShare/css/adduserinfo.css' %}" rel="stylesheet">-->
+    <script src="{% static 'myShare/js/jquery-1.7.1.min.js' %}"></script>
+    <link href="{% static 'myShare/font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+    <link href="{% static 'myShare/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'myShare/css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'myShare/css/style.css' %}" rel="stylesheet">
+    {# 引用spinia插件 #}
+    <link href="{% static 'inspinia/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'inspinia/css/plugins/jasny/jasny-bootstrap.min.css' %}" rel="stylesheet">
+
+<style type="text/css">
+body{
+    font-size:15px;
+}
+.container{
+    width:600px;
+}
+.neceng .shrukuan {
+    margin-bottom: 20px;
+    width: 100%;
+}
+.neceng .shrukuan ul{
+    list-style:none;
+}
+.neceng .shrukuan ul li{
+    display:inline;
+}
+.logo,.btncontain{
+    text-align:center;
+}
+.nicexx{
+    margin:20px 0 20px 0;
+}
+#id_gender li{
+    margin-right:20px;
+    width:100px;
+}
+
+</style>
+</head>
+<body  class="gray-bg">
+
+            <div class="container">
+                <div class="logo">
+                    <div>
+                        <h1 class="logo-name">IN+</h1>
+                    </div>
+                    <h3>Perfect the info</h3>
+                    <p>fill account to see it in action.</p>
+                </div>
+              <form class="form" method="post" action="{% url 'myShare:adduserinfo' %}" enctype="multipart/form-data">
+                  {% csrf_token %}
+                   <div class="sctxan">
+                       <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <span class="btn btn-default btn-file"><span class="fileinput-new">上传头像</span>
+                            <span class="fileinput-exists">Change</span>
+                            {{form.uploadimg}}
+                            </span>
+                        <span class="fileinput-filename"></span>
+                        <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">×</a>
+                    </div>
+                   </div>
+
+                <div class="neceng">
+                   <div class="nicexx">{{form.gender.label}}</div>
+                   <div class="shrukuan">{{form.gender}}</div>
+               </div>
+
+               <div class="neceng">
+                   <div class="nicexx">{{form.onlinename.label}}</div>
+                   <div class="shrukuan">{{form.onlinename}}</div>
+               </div>
+
+              <div class="neceng">
+                   <div class="nicexx">{{form.mobilephone.label}}</div>
+                   <div class="shrukuan">{{form.mobilephone}}</div>
+               </div>
+
+              <div class="sctxan zhxg queren btncontain">
+                <button class="btn btn-info" name="submit">进入网站</button>
+              </div>
+               </form>
+</div>
+</body>
+<script>
+    window.onload = function () {
+        $("#id_onlinename").attr("placeholder","Your Online Name")
+        $("#id_mobilephone").attr("placeholder","Please input 11 number")
+    }
+</script>
+</html>

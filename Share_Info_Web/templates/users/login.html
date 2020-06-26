@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap3 %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device,initial-scale=1">
+    <title>login</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <!--引入css/js文件-->
+    <link href="{% static 'myShare/css/login.css' %}" rel="stylesheet">
+    <link href="{% static 'myShare/js/login.js' %}" rel="stylesheet">
+    
+    <style type="text/css">
+    	.errortag{
+    		position: relative;
+    	}
+    	.errorinfo{
+    		font-size: 16px;
+    		color: #333;
+    		position: absolute;
+    		left: 75%;
+    		top: 20%;
+    	}
+    </style>
+    
+</head>
+<body background="{% static 'myShare/img/login/bg.jpg' %}">
+<div class="container login" align="center">
+    <div class="control-group title_div">
+     <h class="login-title">用户登录</h>
+     <br/>
+    </div>
+<br/>
+    <br/>
+  <form class="form-horizontal" method="post" action="{% url 'users:login' %}">
+    {% csrf_token %}
+    <fieldset>
+    <div class="control-group errortag">
+         <img src="{% static 'myShare/img/login/login_user.png' %}"/>
+         {{form.username}}
+         <lable class="errorinfo">{{form.username.errors.0}}</lable>
+    </div>
+        <br/>
+    <div class="control-group errortag" >
+          <img src="{% static 'myShare/img/login/login_password.png' %}"/>
+          {{form.password}}
+          <lable class="errorinfo">{{form.password.errors.0}}</lable>
+        </div>
+        <br/>
+    <div class="control-group errortag">
+        <img src="{% static 'myShare/img/login/login_verify.png' %}"/>
+        <input type="text" placeholder="verifycode" class="input-xlarge input_verify" >
+        </div>
+     <div class="control-group">
+          <label class="control-label"></label>
+          <div class="controls">
+            <input type="submit" value="登录"  class="btn btn-primary btn_login">
+          </div>
+        </div>
+    <div class="control-group">
+        <a class="register" href="{% url 'users:register' %}">没有账号？点击注册</a>
+    </div>
+    </fieldset>
+    <input type="hidden" name="next" value="{% url 'myShare:adduserinfo' %}" />
+  </form>
+</div>
+<script>
+    window.onload = function () {
+        $("#id_username").addClass("input-xlarge input_username");
+        $("#id_username").attr("placeholder","username")
+        $("#id_password").addClass("input-xlarge input_password");
+        $("#id_password").attr("placeholder","password")
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+{% extends 'myShare/base.html' %}
+{% load static %}
+{% block main %}
+<div class="wrapper wrapper-content  animated fadeInRight">
+
+         <div class="row">
+            <div class="col-lg-12">
+              <div class="wrapper wrapper-content">
+                <div class="row">
+                <div class="col-lg-12 md">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>个人信息修改</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">设置 1</a>
+                                    </li>
+                                    <li><a href="#">设置 2</a>
+                                    </li>
+                              </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                          </div>
+                      </div>
+                      <div class="ibox-content">
+                          <form method="post" action="{% url 'myShare:userinfo' %}" enctype="multipart/form-data">
+                              {% csrf_token %}
+                              {{form.as_p}}
+                              <button name="submit">修改</button>
+                          </form>
+                       <div class="touxian">
+
+                       <div class="wenzi">头像</div>
+
+                       <div class="ytouxian"><img src="{% static 'myShare/img/tx_03.png' %}" width="105" height="105" alt=""/></div>
+
+                       <div class="sctxan"><input type="button" class="scanbtn" value="上传头像"></div>
+
+                       </div>
+
+     <div class="neceng">
+<div class="nicexx">呢称</div>
+<div class="shrukuan"><input type="text" class="shurunic"></div>
+</div>
+
+
+
+
+                      </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+{% endblock main %}
+
+{% block css%}
+<link href="{% static 'myShare/font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/animate.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/style.css' %}" rel="stylesheet">
+
+{% endblock css%}
+
+{% block javascript%}
+    <!-- Mainly scripts -->
+    <script src="{% static 'myShare/js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'myShare/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'myShare/js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'myShare/js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="{% static 'myShare/js/inspinia.js' %}"></script>
+    <script src="{% static 'myShare/js/plugins/pace/pace.min.js' %}"></script>
+
+    <script src="{% static 'myShare/js/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+
+    <!-- Jquery Validate -->
+    <script src="{% static 'myShare/js/plugins/validate/jquery.validate.min.js' %}"></script>
+
+    <script>
+         $(document).ready(function(){
+
+             $("#form").validate({
+                 rules: {
+                     password: {
+                         required: true,
+                         minlength: 3
+                     },
+                     url: {
+                         required: true,
+                         url: true
+                     },
+                     number: {
+                         required: true,
+                         number: true
+                     },
+                     min: {
+                         required: true,
+                         minlength: 6
+                     },
+                     max: {
+                         required: true,
+                         maxlength: 4
+                     }
+                 }
+             });
+        });
+    </script>
+{% endblock javascript%}

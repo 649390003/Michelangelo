@@ -1,0 +1,209 @@
+{% extends 'myShare/base.html' %}
+{% load staticfiles %}
+{% block main %}
+<div class="wrapper wrapper-content  animated fadeInRight">
+
+         <div class="row">
+            <div class="col-lg-12">
+              <div class="wrapper wrapper-content">
+                        <div class="row">
+                        <div class="col-lg-4 md">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>信息修改</h5>
+                                    <div class="ibox-tools">
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                            <i class="fa fa-wrench"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-user">
+                                            <li><a href="#">设置 1</a>
+                                            </li>
+                                            <li><a href="#">设置 2</a>
+                                            </li>
+                                      </ul>
+                                        <a class="close-link">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                  </div>
+                              </div>
+                              <div class="ibox-content">
+                                  <form method="post" action="{% url 'myShare:shezhi1' %}" enctype="multipart/form-data">
+                                      {% csrf_token %}
+
+                                   <div class="touxian">
+                                       <div class="wenzi">当前头像</div>
+                                       <div class="ytouxian">
+                                           <img src="{{MEDIA_URL}}{{userimg}}" width="105" height="105" alt=""/>
+                                       </div>
+                                       <div class="sctxan">
+                                           <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <span class="btn btn-default btn-file"><span class="fileinput-new">上传头像</span>
+                                            <span class="fileinput-exists">Change</span>
+                                            {{form.uploadimg}}
+                                            </span>
+                                            <span class="fileinput-filename"></span>
+                                            <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">×</a>
+                                        </div>
+                                       </div>
+                                   </div>
+
+                                    <div class="neceng">
+                                       <div class="nicexx">{{form.gender.label}}</div>
+                                       <div class="shrukuan">{{form.gender}}</div>
+                                   </div>
+
+                                   <div class="neceng">
+                                       <div class="nicexx">{{form.onlinename.label}}</div>
+                                       <div class="shrukuan">{{form.onlinename}}</div>
+                                   </div>
+
+                                  <div class="neceng">
+                                       <div class="nicexx">{{form.mobilephone.label}}</div>
+                                       <div class="shrukuan">{{form.mobilephone}}</div>
+                                   </div>
+
+                                  <div class="sctxan zhxg queren">
+                                    <button class="btn btn-info" name="submit">修改</button>
+                                  </div>
+                                   </form>
+                              </div>
+                          </div>
+                        </div>
+                            <div class="col-lg-4 md">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>修改登录密码</h5>
+                                    <div class="ibox-tools">
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                            <i class="fa fa-wrench"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-user">
+                                            <li><a href="#">设置 1</a>
+                                            </li>
+                                            <li><a href="#">设置 2</a>
+                                            </li>
+                                      </ul>
+                                        <a class="close-link">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                  </div>
+                              </div>
+                              <div class="ibox-content">
+
+                               <div class="touxian yzm">
+
+                               <div class="wenzi zhanhao">
+                                 <p>账号</p>
+                                 <p>159******11</p>
+                               </div>
+                               <div class="sctxan zhxg"><input type="button" class="scanbtn" value="获取验证码"></div>
+
+                               </div>
+
+             <div class="neceng yzm">
+ <div class="nicexx yzm">验证码</div>
+ <div class="shrukuan yzm"><input type="text" class="shurunic" placeholder="输入验证码"></div>
+ </div>
+
+      <div class="neceng yzm">
+ <div class="nicexx yzm">密码</div>
+ <div class="shrukuan yzm"><input type="text" class="shurunic" placeholder="输入登录密码"></div>
+ </div>
+
+                <div class="neceng yzm">
+ <div class="nicexx yzm">确认密码</div>
+ <div class="shrukuan yzm"><input type="text" class="shurunic" placeholder="再次输入登录密码"></div>
+ </div>
+                                <div class="sctxan zhxg queren"><input type="button" class="scanbtn zhxq" value="确认修改"></div>
+
+                              </div>
+                          </div>
+
+                        </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        </div>
+{% endblock main %}
+
+{% block css%}
+<link href="{% static 'myShare/font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/animate.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/style.css' %}" rel="stylesheet">
+{# 引用spinia插件 #}
+<link href="{% static 'inspinia/css/plugins/jasny/jasny-bootstrap.min.css' %}" rel="stylesheet">
+<style type="text/css">
+.ibox-content .neceng .shrukuan {
+    margin-bottom: 20px;
+    width: 100%;
+}
+.ibox-content .neceng .shrukuan ul{
+    list-style:none;
+}
+.ibox-content .neceng .shrukuan ul li{
+    display:inline;
+}
+
+</style>
+{% endblock css%}
+
+{% block javascript%}
+    <!-- Mainly scripts -->
+    <script src="{% static 'myShare/js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'myShare/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'myShare/js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'myShare/js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="{% static 'myShare/js/inspinia.js' %}"></script>
+    <script src="{% static 'myShare/js/plugins/pace/pace.min.js' %}"></script>
+
+    <script src="{% static 'myShare/js/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+
+    <!-- Jquery Validate -->
+    <script src="{% static 'myShare/js/plugins/validate/jquery.validate.min.js' %}"></script>
+
+    <script>
+         $(document).ready(function(){
+
+             $("#form").validate({
+                 rules: {
+                     password: {
+                         required: true,
+                         minlength: 3
+                     },
+                     url: {
+                         required: true,
+                         url: true
+                     },
+                     number: {
+                         required: true,
+                         number: true
+                     },
+                     min: {
+                         required: true,
+                         minlength: 6
+                     },
+                     max: {
+                         required: true,
+                         maxlength: 4
+                     }
+                 }
+             });
+        });
+    </script>
+    <script>
+        $('.custom-file-input').on('change', function() {
+           let fileName = $(this).val().split('\\').pop();
+           $(this).next('.custom-file-label').addClass("selected").html(fileName);
+        });
+    </script>
+{% endblock javascript%}

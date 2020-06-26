@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<title>欢迎访问股票证券管理系统</title>
+
+		<link href="static/myShare/css/bootstrap.min.css" rel="stylesheet">
+		<link href="static/myShare/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+		<!-- Toastr style -->
+		<link href="static/myShare/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+		<!-- Gritter -->
+		<link href="static/myShare/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+
+		<link href="static/myShare/css/animate.css" rel="stylesheet">
+		<link href="static/myShare/css/style.css" rel="stylesheet">
+		<link href="static/myShare/css/iconfont.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+table tr td{
+	height:40px;
+	line-height:40px;
+	font-size:15px;
+}
+</style>
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<nav class="navbar-default navbar-static-side" role="navigation">
+				<div class="sidebar-collapse">
+					<ul class="nav metismenu" id="side-menu">
+						<li class="nav-header">
+							<div class="dropdown profile-element"> <span>
+							{% if user.is_authenticated %}
+							<img width="48px" height="48px" alt="image" class="img-circle" src="{{MEDIA_URL}}{{userimg}}" />
+							{% else %}
+							<img width="48px" height="48px" alt="image" class="img-circle" src="{% static 'myShare/img/profile_small.jpg' %}" />
+							{% endif %}
+<!--                            <img width="48px" height="48px" alt="image" class="img-circle" src="{{MEDIA_URL}}{{userimg}}" />-->
+                             </span>
+								<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+									<span class="clear">
+										<span class="block m-t-xs">
+											<strong class="font-bold">
+												{% if user.is_authenticated %}
+												{{onlinename}}
+												{% else %}
+												游客
+												{% endif %}
+											</strong>
+										</span>
+										<span class="text-muted text-xs block">
+											{% if user.is_authenticated %}
+												{% if user.is_superuser %}
+													管理员
+												{% else %}
+													用户
+												{% endif %}
+											{% else %}
+												用户
+											{% endif %}
+											<b class="caret"></b>
+										</span>
+									</span>
+								</a>
+								<ul class="dropdown-menu animated fadeInRight m-t-xs">
+									<li>
+										<a href="{% url 'myShare:userinfo' %}">个人信息</a>
+									</li>
+									<li>
+										<a href="contacts.html">联系方式</a>
+									</li>
+									<li>
+										<a href="mailbox.html">邮箱</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<a href="{% url 'myShare:quit' %}">退出登录</a>
+									</li>
+								</ul>
+							</div>
+							<div class="logo-element">
+								<img src="{% static 'myShare/img/00_03.png' %}" width="38" height="35" alt="" /> </div>
+						</li>
+						<li class="active">
+							<a href="{% url 'myShare:index' %}"><i class="iconfont icon-shouye"></i> <span class="nav-label">首页</span> </a>
+						</li>
+						<li>
+
+							<li>
+								<a href="#"><i class="iconfont icon-shouyi"></i> <span class="nav-label">收益</span><span class="fa arrow"></span></a>
+
+								<ul class="nav nav-second-level">
+									<li>
+										<a href="{% url 'myShare:shouyi1' %}">收益概况</a>
+									</li>
+									<li>
+										<a href="{% url 'myShare:shouyi2' %}">历史收益</a>
+									</li>
+									<li>
+										<a href="{% url 'myShare:shouyi3' %}">收益明细</a>
+									</li>
+								</ul>
+
+							</li>
+							<li>
+								<a href="#"><i class="iconfont icon-fenxi"></i> <span class="nav-label">分析</span><span class="fa arrow"></span></a>
+								<ul class="nav nav-second-level collapse">
+									<li>
+										<a href="{% url 'myShare:fenxi2' %}">股票分析</a>
+									</li>
+									<li>
+										<a href="{% url 'myShare:fenxi1' %}">收益分析</a>
+									</li>
+									<li>
+										<a href="{% url 'myShare:fenxi3' %}">客户分析</a>
+									</li>
+									<li>
+										<a href="{% url 'myShare:fenxi4' %}">交易记录</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="{% url 'myShare:caiwu' %}"><i class="iconfont icon-tixian"></i> <span class="nav-label">财务 </span></a>
+
+							</li>
+							<li>
+								<a href="{% url 'myShare:order' %}"><i class="iconfont icon-kehu"></i> <span class="nav-label">订单</span> </a>
+							</li>
+							<li>
+								<a href="{% url 'myShare:fuwu' %}"><i class="iconfont icon-fuwu"></i> <span class="nav-label">服务</span></a>
+							</li>
+							<li>
+								<a href="{% url 'myShare:xiaoxi' %}"><i class="iconfont icon-bf-icon-message"></i> <span class="nav-label">消息</span></a>
+							</li>
+							<li>
+								<a href="#"><i class="iconfont icon-shezhi"></i> <span class="nav-label">设置</span><span class="fa arrow"></span></a>
+								<ul class="nav nav-second-level collapse">
+									<li>
+										<a href="{% url 'myShare:shezhi1' %}">基础设置</a>
+									</li>
+									<li>
+										<a href="{% url 'myShare:shezhi2' %}">提现设置</a>
+									</li>
+								</ul>
+							</li>
+							<!--这个位置有一个隐藏的菜单-->
+							<li>
+								<ul class="nav nav-second-level collapse">
+									<li>
+										<a href="search_results.html">搜索结果</a>
+									</li>
+									<li>
+										<a href="lockscreen.html">锁屏</a>
+									</li>
+									<li>
+										<a href="invoice.html">发票</a>
+									</li>
+									<li>
+										<a href="login.html">登录</a>
+									</li>
+									<li>
+										<a href="login_two_columns.html">登录 v.2</a>
+									</li>
+									<li>
+										<a href="forgot_password.html">忘记密码</a>
+									</li>
+									<li>
+										<a href="register.html">注册</a>
+									</li>
+									<li>
+										<a href="404.html">404</a>
+									</li>
+									<li>
+										<a href="500.html">500</a>
+									</li>
+									<li>
+										<a href="empty_page.html">空白页面</a>
+									</li>
+								</ul>
+							</li>
+					</ul>
+
+				</div>
+			</nav>
+
+			<div id="page-wrapper" class="gray-bg dashbard-1">
+				<div class="row border-bottom">
+					<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+						<div class="navbar-header">
+							<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+							<form role="search" class="navbar-form-custom" action="search_results.html">
+								<div class="form-group">
+									<input type="text" placeholder="搜索关键字..." class="form-control" name="top-search" id="top-search">
+								</div>
+							</form>
+						</div>
+						<ul class="nav navbar-top-links navbar-right">
+							<li>
+								<span class="m-r-sm text-muted welcome-message">欢迎来到 股票证券管理系统 </span>
+							</li>
+							<li class="dropdown">
+								<a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+									<i class="fa fa-envelope"></i> <span class="label label-warning">16</span>
+								</a>
+								<ul class="dropdown-menu dropdown-messages">
+									<li>
+										<div class="dropdown-messages-box">
+											<a href="profile.html" class="pull-left">
+												<img alt="image" class="img-circle" src="{% static 'myShare/img/a7.jpg' %}">
+											</a>
+											<div class="media-body">
+												<small class="pull-right">46小时前</small>
+												<strong>李文俊</strong> 关注了 <strong>刘海洋</strong>. <br>
+												<small class="text-muted">3 天 前- 10.06.2014</small>
+											</div>
+										</div>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<div class="dropdown-messages-box">
+											<a href="profile.html" class="pull-left">
+												<img alt="image" class="img-circle" src="{% static 'myShare/img/a4.jpg' %}">
+											</a>
+											<div class="media-body ">
+												<small class="pull-right text-navy">5小时前</small>
+												<strong>王昆</strong> 关注了 <strong>李文俊</strong>. <br>
+												<small class="text-muted">昨天下午1:21 - 11.06.2014</small>
+											</div>
+										</div>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<div class="dropdown-messages-box">
+											<a href="profile.html" class="pull-left">
+												<img alt="image" class="img-circle" src="{% static 'myShare/img/profile.jpg' %}">
+											</a>
+											<div class="media-body ">
+												<small class="pull-right">23小时前</small>
+												<strong>张三</strong> 赞了 <strong>李四</strong>. <br>
+												<small class="text-muted">2天前 - 11.06.2014</small>
+											</div>
+										</div>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<div class="text-center link-block">
+											<a href="mailbox.html">
+												<i class="fa fa-envelope"></i> <strong>查看更多消息</strong>
+											</a>
+										</div>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+									<i class="fa fa-bell"></i> <span class="label label-primary">8</span>
+								</a>
+								<ul class="dropdown-menu dropdown-alerts">
+									<li>
+										<a href="mailbox.html">
+											<div>
+												<i class="fa fa-envelope fa-fw"></i> 您有 16 条未读通知
+												<span class="pull-right text-muted small">4 分钟 前</span>
+											</div>
+										</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<a href="profile.html">
+											<div>
+												<i class="fa fa-twitter fa-fw"></i> 3 个新粉丝
+												<span class="pull-right text-muted small">12 分钟 前</span>
+											</div>
+										</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<a href="grid_options.html">
+											<div>
+												<i class="fa fa-upload fa-fw"></i> 服务器重启
+												<span class="pull-right text-muted small">4 分钟 前</span>
+											</div>
+										</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<div class="text-center link-block">
+											<a href="notifications.html">
+												<strong>查看更多通知</strong>
+												<i class="fa fa-angle-right"></i>
+											</a>
+										</div>
+									</li>
+								</ul>
+							</li>
+
+							<li>
+								<a href="{% url 'myShare:quit' %}">
+									<i class="fa fa-sign-out"></i> 退出登录
+								</a>
+							</li>
+						</ul>
+
+					</nav>
+				</div>
+				<div class="row  border-bottom white-bg dashboard-header">
+
+					<div class="col-sm-3">
+						{% if user.is_authenticated %}
+						<h2>欢迎您，{{onlinename}}</h2>
+						<small>您有 16 条未读消息 和 8 条通知.</small>
+						{% else %}
+						<h2>亲爱的游客，请先登录</h2>
+						<h3>
+							<a href="{% url 'users:login' %}">登录</a>
+							<a href="{% url 'users:register' %}">注册</a>
+						</h3>
+						{% endif %}
+						<ul class="list-group clear-list m-t">
+							<li class="list-group-item fist-item">
+								<span class="pull-right">
+                                  2
+                              </span>
+								<i class="iconfont icon-bangongshi"></i>&nbsp;&nbsp;&nbsp; 总版块数
+							</li>
+							<li class="list-group-item">
+								<span class="pull-right">
+                                  26
+                              </span>
+								<i class="iconfont icon-shangpinmoxing"></i>&nbsp;&nbsp;&nbsp; 总证券数
+							</li>
+							<li class="list-group-item">
+								<span class="pull-right">
+                                  3324
+                              </span>
+								<i class="iconfont icon-kehu"></i>&nbsp;&nbsp;&nbsp; 总客户数
+							</li>
+							<li class="list-group-item">
+								<span class="pull-right">
+                                  9936
+                              </span>
+								<i class="iconfont icon-weishiyong"></i>&nbsp;&nbsp;&nbsp; 使用次数
+							</li>
+
+						</ul>
+					</div>
+					<div class="col-sm-6">
+						<div class="flot-chart dashboard-chart">
+							<div class="flot-chart-content" id="flot-dashboard-chart"></div>
+						</div>
+						<div class="row text-left">
+							<div class="col-xs-4">
+								<div class=" m-l-md">
+									<span class="h4 font-bold m-t block">￥38.29</span>
+									<small class="text-muted m-b block">今日收益</small>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<span class="h4 font-bold m-t block">￥38.29</span>
+								<small class="text-muted m-b block">本周收益</small>
+							</div>
+							<div class="col-xs-4">
+								<span class="h4 font-bold m-t block">￥38.29</span>
+								<small class="text-muted m-b block">本月收益</small>
+							</div>
+							<div class="col-xs-4">
+								<span class="h4 font-bold m-t block">￥38.29</span>
+								<small class="text-muted m-b block">累计收益</small>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="wrapper wrapper-content">
+							<div class="row">
+								<div class="col-lg-6 md">
+									<div class="ibox float-e-margins">
+										<div class="ibox-title">
+											<h5>上证指数</h5>
+											<div class="ibox-tools">
+												<a class="collapse-link">
+													<i class="fa fa-chevron-up"></i>
+												</a>
+												<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+													<i class="fa fa-wrench"></i>
+												</a>
+												<ul class="dropdown-menu dropdown-user">
+													<li>
+														<a href="#">设置 1</a>
+													</li>
+													<li>
+														<a href="#">设置 2</a>
+													</li>
+												</ul>
+												<a class="close-link">
+													<i class="fa fa-times"></i>
+												</a>
+											</div>
+										</div>
+										<div class="ibox-content">
+											<div><img src="{% static 'myShare/img/LightShare.png' %}" width="480" height="197" alt="" /> </div>
+
+											<div class="dizhi"><i class="iconfont icon-dizhi"></i>&nbsp;&nbsp; 河南科技大学西苑校区</div>
+
+											<div class="tongjisb">
+												<div class="tongji"><i class="iconfont icon-shangpinmoxing"></i>&nbsp; 设备<span>6</span></div>
+												<div class="tongji"><i class="iconfont icon-kehu"></i>&nbsp; 客户<span>6</span></div>
+												<div class="tongji"><i class="iconfont icon-weishiyong"></i>&nbsp; 使用<span>6</span></div>
+											</div>
+
+											<div class="shouyimx">
+												<div class="shouyijg">￥126.00</div>
+												<div class="shouyileix">今日收益</div>
+											</div>
+
+											<div class="shouyimx right">
+												<div class="shouyijg">￥126.00</div>
+												<div class="shouyileix">本周收益</div>
+											</div>
+
+											<div class="shouyimx">
+												<div class="shouyijg">￥274.00 </div>
+												<div class="shouyileix">本月收益</div>
+											</div>
+
+											<div class="shouyimx right">
+												<div class="shouyijg red">￥526.00</div>
+												<div class="shouyileix red">累计收益</div>
+											</div>
+
+										</div>
+									</div>
+
+								</div>
+								<div class="col-lg-6 md">
+									<div class="ibox float-e-margins">
+										<div class="ibox-title">
+											<h5>深证成指</h5>
+											<div class="ibox-tools">
+												<a class="collapse-link">
+													<i class="fa fa-chevron-up"></i>
+												</a>
+												<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+													<i class="fa fa-wrench"></i>
+												</a>
+												<ul class="dropdown-menu dropdown-user">
+													<li>
+														<a href="#">设置 1</a>
+													</li>
+													<li>
+														<a href="#">设置 2</a>
+													</li>
+												</ul>
+												<a class="close-link">
+													<i class="fa fa-times"></i>
+												</a>
+											</div>
+										</div>
+										<div class="ibox-content">
+											<div><img src="{% static 'myShare/img/LightShareLog.png' %}" width="480" height="197" alt="" /> </div>
+
+											<div class="dizhi"><i class="iconfont icon-dizhi"></i>&nbsp;河南科技大学开元校区</div>
+
+											<div class="tongjisb">
+												<div class="tongji"><i class="iconfont icon-shangpinmoxing"></i>&nbsp; 设备<span>6</span></div>
+												<div class="tongji"><i class="iconfont icon-kehu"></i>&nbsp; 客户<span>6</span></div>
+												<div class="tongji"><i class="iconfont icon-weishiyong"></i>&nbsp; 使用<span>6</span></div>
+											</div>
+
+											<div class="shouyimx">
+												<div class="shouyijg">2901.57</div>
+												<div class="shouyileix">开盘</div>
+											</div>
+
+											<div class="shouyimx right">
+												<div class="shouyijg">2889.85</div>
+												<div class="shouyileix">当前</div>
+											</div>
+
+											<div class="shouyimx">
+												<div class="shouyijg">2914.28</div>
+												<div class="shouyileix">最高</div>
+											</div>
+
+											<div class="shouyimx right">
+												<div class="shouyijg red">2884.38</div>
+												<div class="shouyileix red">最低</div>
+											</div>
+
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox">
+								<div class="ibox-title">
+									<h5>股票基础信息<br>
+									</h5>
+									<div class="ibox-tools">
+										<a class="collapse-link">
+											<i class="fa fa-chevron-up"></i>
+										</a>
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+											<i class="fa fa-wrench"></i>
+										</a>
+										<ul class="dropdown-menu dropdown-user">
+											<li><a href="#">配置选项 1</a>
+											</li>
+											<li><a href="#">配置选项 2</a>
+											</li>
+									  </ul>
+										<a class="close-link">
+											<i class="fa fa-times"></i>
+										</a>
+								  </div>
+							</div>
+                                <div class="ibox-content">
+                                    <div class="table-responsive">
+                                        <table width="100%" class="table table-striped">
+                                            <tbody align="center">
+                                            <tr>
+                                                <td width="15%">-</td>
+                                                <td width="15%">股票名称</td>
+                                                <td width="15%">最新价</td>
+                                                <td width="15%">剩余券数</td>
+                                                <td width="25%">发行时间</td>
+												<td width="15">操作</td>
+                                            </tr>
+                                            {% for share in shares %}
+                                            <tr>
+                                                <td>{{forloop.counter}}</td>
+                                                <td>{{share.sname}}</td>
+                                                <td>¥{{share.nprice}}</td>
+                                                <td>{{share.issuenum}}股</td>
+                                                <td>{{share.issuedate}}</td>
+												<td><a href="{% url 'myShare:addshare' share.id %}">加入自选股</a></td>
+                                              </tr>
+											{% empty %}
+											<tr>
+												<td colspan="8">
+													<font>请登录后使用</font>
+												</td>
+											</tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				<div class="footer">
+					<div class="pull-right">
+						10GB of <strong>250GB</strong> Free.
+					</div>
+					<div>
+						<strong>Copyright</strong> Example Company &copy; 2014-2015
+					</div>
+				</div>
+
+			</div>
+			<div class="small-chat-box fadeInRight animated">
+
+				<div class="heading" draggable="true">
+					<small class="chat-date pull-right">
+                    02.19.2015
+                </small> Small chat
+				</div>
+
+				<div class="content">
+
+					<div class="left">
+						<div class="author-name">
+							Monica Jackson <small class="chat-date">
+                        10:02 am
+                    </small>
+						</div>
+						<div class="chat-message active">
+							Lorem Ipsum is simply dummy text input.
+						</div>
+
+					</div>
+					<div class="right">
+						<div class="author-name">
+							Mick Smith
+							<small class="chat-date">
+                            11:24 am
+                        </small>
+						</div>
+						<div class="chat-message">
+							Lorem Ipsum is simpl.
+						</div>
+					</div>
+					<div class="left">
+						<div class="author-name">
+							Alice Novak
+							<small class="chat-date">
+                            08:45 pm
+                        </small>
+						</div>
+						<div class="chat-message active">
+							Check this stock char.
+						</div>
+					</div>
+					<div class="right">
+						<div class="author-name">
+							Anna Lamson
+							<small class="chat-date">
+                            11:24 am
+                        </small>
+						</div>
+						<div class="chat-message">
+							The standard chunk of Lorem Ipsum
+						</div>
+					</div>
+					<div class="left">
+						<div class="author-name">
+							Mick Lane
+							<small class="chat-date">
+                            08:45 pm
+                        </small>
+						</div>
+						<div class="chat-message active">
+							I belive that. Lorem Ipsum is simply dummy text.
+						</div>
+					</div>
+
+				</div>
+
+				<div class="form-chat">
+					<div class="input-group input-group-sm"><input type="text" class="form-control"> <span class="input-group-btn"> <button
+                        class="btn btn-primary" type="button">Send
+                </button> </span></div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- Mainly scripts -->
+		<script src="static/myShare/js/jquery-2.1.1.js"></script>
+		<script src="static/myShare/js/bootstrap.min.js"></script>
+		<script src="static/myShare/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+		<script src="static/myShare/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+		<!-- Flot -->
+		<script src="static/myShare/js/plugins/flot/jquery.flot.js"></script>
+		<script src="static/myShare/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+		<script src="static/myShare/js/plugins/flot/jquery.flot.spline.js"></script>
+		<script src="static/myShare/js/plugins/flot/jquery.flot.resize.js"></script>
+		<script src="static/myShare/js/plugins/flot/jquery.flot.pie.js"></script>
+
+		<!-- Peity -->
+		<script src="static/myShare/js/plugins/peity/jquery.peity.min.js"></script>
+		<script src="static/myShare/js/demo/peity-demo.js"></script>
+
+		<!-- Custom and plugin javascript -->
+		<script src="static/myShare/js/inspinia.js"></script>
+		<script src="static/myShare/js/plugins/pace/pace.min.js"></script>
+
+		<!-- jQuery UI -->
+		<script src="static/myShare/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+		<!-- GITTER -->
+		<script src="static/myShare/js/plugins/gritter/jquery.gritter.min.js"></script>
+
+		<!-- Sparkline -->
+		<script src="static/myShare/js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+		<!-- Sparkline demo data  -->
+		<script src="static/myShare/js/demo/sparkline-demo.js"></script>
+
+		<!-- ChartJS-->
+		<script src="static/myShare/js/plugins/chartJs/Chart.min.js"></script>
+
+		<!-- Toastr -->
+		<script src="static/myShare/js/plugins/toastr/toastr.min.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				setTimeout(function() {
+					toastr.options = {
+						closeButton: true,
+						progressBar: true,
+						showMethod: 'slideDown',
+						timeOut: 4000
+					};
+					toastr.success('Responsive Admin Theme', 'Welcome to INSPINIA');
+
+				}, 1300);
+
+				var data1 = [
+					[0, 4],
+					[1, 8],
+					[2, 5],
+					[3, 10],
+					[4, 4],
+					[5, 16],
+					[6, 5],
+					[7, 11],
+					[8, 6],
+					[9, 11],
+					[10, 30],
+					[11, 10],
+					[12, 13],
+					[13, 4],
+					[14, 3],
+					[15, 3],
+					[16, 6]
+				];
+				var data2 = [
+					[0, 1],
+					[1, 0],
+					[2, 2],
+					[3, 0],
+					[4, 1],
+					[5, 3],
+					[6, 1],
+					[7, 5],
+					[8, 2],
+					[9, 3],
+					[10, 2],
+					[11, 1],
+					[12, 0],
+					[13, 2],
+					[14, 8],
+					[15, 0],
+					[16, 0]
+				];
+				$("#flot-dashboard-chart").length && $.plot($("#flot-dashboard-chart"), [
+					data1, data2
+				], {
+					series: {
+						lines: {
+							show: false,
+							fill: true
+						},
+						splines: {
+							show: true,
+							tension: 0.4,
+							lineWidth: 1,
+							fill: 0.4
+						},
+						points: {
+							radius: 0,
+							show: true
+						},
+						shadowSize: 2
+					},
+					grid: {
+						hoverable: true,
+						clickable: true,
+						tickColor: "#d5d5d5",
+						borderWidth: 1,
+						color: '#d5d5d5'
+					},
+					colors: ["#1ab394", "#1C84C6"],
+					xaxis: {},
+					yaxis: {
+						ticks: 4
+					},
+					tooltip: false
+				});
+
+				var doughnutData = [{
+						value: 300,
+						color: "#a3e1d4",
+						highlight: "#1ab394",
+						label: "App"
+					},
+					{
+						value: 50,
+						color: "#dedede",
+						highlight: "#1ab394",
+						label: "Software"
+					},
+					{
+						value: 100,
+						color: "#A4CEE8",
+						highlight: "#1ab394",
+						label: "Laptop"
+					}
+				];
+
+				var doughnutOptions = {
+					segmentShowStroke: true,
+					segmentStrokeColor: "#fff",
+					segmentStrokeWidth: 2,
+					percentageInnerCutout: 45, // This is 0 for Pie charts
+					animationSteps: 100,
+					animationEasing: "easeOutBounce",
+					animateRotate: true,
+					animateScale: false
+				};
+
+				var ctx = document.getElementById("doughnutChart").getContext("2d");
+				var DoughnutChart = new Chart(ctx).Doughnut(doughnutData, doughnutOptions);
+
+				var polarData = [{
+						value: 300,
+						color: "#a3e1d4",
+						highlight: "#1ab394",
+						label: "App"
+					},
+					{
+						value: 140,
+						color: "#dedede",
+						highlight: "#1ab394",
+						label: "Software"
+					},
+					{
+						value: 200,
+						color: "#A4CEE8",
+						highlight: "#1ab394",
+						label: "Laptop"
+					}
+				];
+
+				var polarOptions = {
+					scaleShowLabelBackdrop: true,
+					scaleBackdropColor: "rgba(255,255,255,0.75)",
+					scaleBeginAtZero: true,
+					scaleBackdropPaddingY: 1,
+					scaleBackdropPaddingX: 1,
+					scaleShowLine: true,
+					segmentShowStroke: true,
+					segmentStrokeColor: "#fff",
+					segmentStrokeWidth: 2,
+					animationSteps: 100,
+					animationEasing: "easeOutBounce",
+					animateRotate: true,
+					animateScale: false
+				};
+				var ctx = document.getElementById("polarChart").getContext("2d");
+				var Polarchart = new Chart(ctx).PolarArea(polarData, polarOptions);
+
+			});
+		</script>
+		<script>
+			(function(i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] || function() {
+					(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o),
+					m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a, m)
+			})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+			ga('create', 'UA-4625583-2', 'webapplayers.com');
+			ga('send', 'pageview');
+		</script>
+	</body>
+
+</html>

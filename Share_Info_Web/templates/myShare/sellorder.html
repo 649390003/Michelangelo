@@ -1,0 +1,100 @@
+{% extends 'myShare/base.html' %}
+{% load static %}
+{% block main %}
+<div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h5>股票买入订单 <small>请仔细确认并填写以下信息.</small></h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#" class="dropdown-item">Config option 1</a>
+                                    </li>
+                                    <li><a href="#" class="dropdown-item">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <form method="post" action="{% url 'myShare:sellorder' share.id %}">
+                                {% csrf_token %}
+
+                                <div class="form-group  row"><label class="col-sm-2 col-form-label">请确认股票名</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" readonly="true" type="text" value="{{share.sname}}">
+<!--                                        <span class="form-text m-b-none"></span>-->
+                                    </div>
+                                </div>
+                                <div class="form-group  row"><label class="col-sm-2 col-form-label">请确认股票代码</label>
+                                    <div class="col-sm-10">
+                                        <input  class="form-control" readonly="true" type="text" value="{{share.snumber}}">
+<!--                                        <span class="form-text m-b-none">{{ info.errors.0 }}</span>-->
+                                    </div>
+                                </div>
+                                {% for info in form %}
+                                <div class="form-group  row"><label class="col-sm-2 col-form-label">{{ info.label }}</label>
+                                    <div class="col-sm-10">
+                                        {{info}}
+                                        <span class="form-text m-b-none">{{ info.errors.0 }}</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                {% endfor %}
+                                <div class="form-group row">
+                                    <div class="col-sm-4 col-sm-offset-2">
+                                        <button class="btn btn-primary btn-sm" type="submit">卖出</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock main %}
+
+{% block css%}
+<link href="{% static 'myShare/font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/animate.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/style.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/plugins/iCheck/custom.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/plugins/steps/jquery.steps.css' %}" rel="stylesheet">
+<link href="{% static 'myShare/css/iconfont.css' %}" rel="stylesheet" type="text/css">
+{% endblock css%}
+
+{% block javascript%}
+{% if messages %}
+    <script>
+        {% for msg in messages %}
+            alert('{{ msg.message }}');
+        {% endfor %}
+    </script>
+{% endif %}
+<!-- Mainly scripts -->
+    <script src="{% static 'myShare/js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'myShare/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'myShare/js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'myShare/js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="{% static 'myShare/js/inspinia.js' %}"></script>
+    <script src="{% static 'myShare/js/plugins/pace/pace.min.js' %}"></script>
+
+<script>
+window.onload = function () {
+    $("#id_expectprice").addClass("form-control");
+    $("#id_sellnum").addClass("form-control");
+}
+</script>
+{% endblock javascript%}

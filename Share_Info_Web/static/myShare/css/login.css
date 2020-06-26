@@ -1,0 +1,43 @@
+/*login界面css设计*/
+body{
+     /*设置背景图片*/
+}
+
+/*设置登陆框居中*/
+.login{
+    width:800px;
+    height:600px;
+    margin-top:200px; /*margin-top表示div距离上方的高度px*/
+}
+
+/*设置标题属性*/
+.login-title{
+font-size:20px;
+    margin-bottom: 30px;
+}
+
+/*设置输入框属性*/
+.input_username,.input_verify,.input_password{
+    height:32px;
+    width:300px;
+}
+
+/*设置标题div属性*/
+.title_div{
+    position: relative;
+    margin-bottom: 30px;
+}
+
+/*设置注册链接属性*/
+.register{
+    font-family: 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Light', 'Arial', sans-serif;
+    font-size:14px;
+    color:#676a6c;
+    line-height:34px;
+    text-decoration: none;
+}
+.register:hover{
+    color:#676a6c;
+    font-weight:bold;
+    text-decoration: none;
+}

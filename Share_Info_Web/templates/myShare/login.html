@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+<form action="{% url 'myShare:login' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="username">
+    <hr>
+    <input type="text" name="password">
+    <hr>
+    <input type="submit" value="登录"><p>{{msg}}</p>
+    <hr>
+    <a href="{% url 'myShare:showregist' %}">没有账号？立即注册</a>
+</form>
+</body>
+</html>
